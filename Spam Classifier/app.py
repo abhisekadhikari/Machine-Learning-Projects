@@ -4,12 +4,6 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import string
-import pymongo
-from pymongo import MongoClient
-
-client = MongoClient()
-db = client.Users
-collection = db.messages
 
 st.set_page_config(page_title = 'Abhitech - Spam Classifier')
 
@@ -48,16 +42,10 @@ if st.button('Check'):
     #3. predict
     result = model.predict(vector_input)[0]
     #4. display
-    # document = {"message": input_sms}
-    # collection.insert_one(document)
     if result == 1:
         st.header('Spam')
-        document = {"message": input_sms, "result": "Spam"}
-        collection.insert_one(document)
     else:
         st.header('Not Spam')
-        document = {"message": input_sms, "result": "Ham"}
-        collection.insert_one(document)
 st.header('A Machine Learning Project')
 st.header('Check Git Hub Repo')
 st.write('https://github.com/abhisekadhikari/Machine-Learning')
