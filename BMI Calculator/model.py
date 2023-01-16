@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pickle as pkl
+st.set_page_config(page_title = 'Abhitech - BMI Calculator')
 model = pkl.load(open('model.pkl', 'rb'))
 st.title("Body Mass Index (BMI) Calculator")
 height = st.number_input("Enter Height in Meters")
