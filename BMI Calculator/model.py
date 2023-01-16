@@ -9,7 +9,7 @@ weight = st.number_input("Enter Weight in Kg")
 if st.button('Calculate'):
     value = weight / np.power(height, 2)
     result = model.predict([[value]])
-    st.title(f"Your BMI Score = {result[0]}")
+    st.title(f"Your BMI Score = {value}")
     if result == 0:
         st.title("Normal")
     elif result == 1:
